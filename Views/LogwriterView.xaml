@@ -1,0 +1,26 @@
+﻿<UserControl 
+    x:Class="LogViewWpf.Views.LogwriterView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:LogViewWpf.ViewModel"
+    Height="101" 
+    Width="300">
+    <UserControl.Resources>
+        <vm:LogwriterViewModel x:Key="VM" />
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource VM}" Height="102">
+        <TextBox 
+            Margin="12,12,12,0" 
+            Height="54" 
+            VerticalAlignment="Top"
+            Text="{Binding Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            />
+        <Button 
+            Height="23" 
+            HorizontalAlignment="Right" 
+            Margin="0,72,12,0" 
+            VerticalAlignment="Top" 
+            Width="75" Content="Update" 
+            Command="{Binding Path=UpdateLogCommand}" />
+    </Grid>
+</UserControl>
